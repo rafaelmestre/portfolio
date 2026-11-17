@@ -1,105 +1,236 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-theme="dark">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rafael Mestre · Portfólio</title>
-  <meta name="description" content="Compras & Suprimentos e desenvolvedor em formação (ADS PUC Minas). Projetos, contatos e redes sociais." />
-  <meta name="theme-color" content="#0a0b0d" />
+  <title>Rafael Mestre · Sites e sistemas para pequenos negócios</title>
+  <meta name="description" content="Rafael Mestre — desenvolvedor web em São Paulo. Sites, landing pages, apps PWA e sistemas sob medida para pequenos negócios, com preço justo." />
+  <meta name="theme-color" content="#0b0b0c" />
 
-  <!-- Open Graph (prévia no WhatsApp / LinkedIn) -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Rafael Mestre · Portfólio" />
-  <meta property="og:description" content="Projetos, contatos e redes sociais." />
-  <meta property="og:url" content="https://rafaelmestre.netlify.app/" />
-  <meta property="og:image" content="https://rafaelmestre.netlify.app/assets/img/og-image.jpg" />
+  <meta property="og:title" content="Rafael Mestre · Sites e sistemas para pequenos negócios" />
+  <meta property="og:description" content="Sites, landing pages, apps PWA e sistemas sob medida, com preço justo." />
+  <meta property="og:url" content="https://rafaelmestre.com.br/" />
+  <meta property="og:image" content="https://rafaelmestre.com.br/assets/img/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="canonical" href="https://rafaelmestre.netlify.app/" />
+  <link rel="canonical" href="https://rafaelmestre.com.br/" />
 
-  <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
   <link rel="apple-touch-icon" href="assets/img/favicon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/style.css" />
-  <script>
-    // aplica o tema salvo antes de pintar (evita "piscar")
-    try {
-      const t = localStorage.getItem("tema") ||
-        (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
-      document.documentElement.dataset.theme = t;
-    } catch (e) {}
-  </script>
 </head>
 <body>
-  <a class="skip" href="#projetos">Pular para projetos</a>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <a class="skip" href="#servicos">Pular para o conteúdo</a>
 
-  <header class="topbar">
-    <span class="brand">rafael<span class="accent">.</span>mestre</span>
-    <nav class="nav" aria-label="Navegação principal">
-      <a href="#sobre">Sobre</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
+  <!-- NAV -->
+  <header class="nav-wrap">
+    <nav class="nav" aria-label="Principal">
+      <a class="logo" href="#topo" aria-label="Rafael Studio — início">
+        <span class="logo-mark" aria-hidden="true">R</span>
+        <span class="logo-text">Rafael<span class="dot">.</span></span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#processo">Processo</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <a class="btn btn-light nav-cta magnetic" href="#contato">Vamos conversar</a>
+      <button class="menu-btn" id="menuBtn" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span>
+      </button>
     </nav>
-    <button class="theme-btn" id="themeBtn" type="button" aria-label="Alternar tema claro/escuro">
-      <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
-      <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
-    </button>
   </header>
 
-  <main>
+  <main id="topo">
     <!-- HERO -->
-    <section class="hero" id="sobre">
-      <div class="hero-bg" aria-hidden="true"><span></span><span></span></div>
-      <div class="hero-photo">
-        <img id="foto" src="" alt="Foto de Rafael Mestre" width="240" height="240" />
-        <span class="status"><span class="dot"></span>Aberto a oportunidades</span>
+    <section class="hero">
+      <div class="hero-grid-bg" aria-hidden="true"></div>
+      <pre class="hero-code mono" aria-hidden="true" id="heroCode"></pre>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <span class="pill reveal-up"><span class="pulse"></span>Disponível para novos projetos</span>
+          <h1 class="hero-title reveal-up">
+            Olá, eu sou<br /><span class="accent-text" id="heroNome">Rafael Mestre</span>
+          </h1>
+          <p class="hero-sub reveal-up">
+            Eu crio <span class="typed" id="typed"></span><span class="caret" aria-hidden="true"></span>
+          </p>
+          <p class="hero-lead reveal-up" id="heroChamada"></p>
+          <div class="hero-cta reveal-up">
+            <a class="btn btn-accent magnetic" id="ctaWhats" href="#" target="_blank" rel="noopener">
+              Pedir orçamento <span class="btn-ico" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn-ghost magnetic" href="#projetos">Ver projetos</a>
+          </div>
+          <div class="hero-social reveal-up">
+            <span class="mono small muted">Me encontre em</span>
+            <div class="social-row" id="heroSocial"></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal-up">
+          <div class="hero-photo" id="heroPhoto">
+            <div class="photo-shape" aria-hidden="true"></div>
+            <img id="heroImg" src="" alt="Rafael Mestre" width="520" height="620" />
+          </div>
+          <div class="badge-rotate" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="circ" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0" /></defs>
+              <text><textPath href="#circ">VAMOS CONVERSAR • VAMOS CONVERSAR • </textPath></text>
+            </svg>
+            <span class="badge-core">↗</span>
+          </div>
+          <div class="float-chip chip-a">⚡ Sites rápidos</div>
+          <div class="float-chip chip-b">📱 Apps PWA</div>
+          <div class="float-chip chip-c">🗓️ Agendamento</div>
+        </div>
       </div>
-      <div class="hero-text">
-        <p class="eyebrow mono" id="local"></p>
-        <h1 id="nome"></h1>
-        <p class="titulo" id="titulo"></p>
-        <p class="resumo" id="resumo"></p>
-        <div class="cta" id="cta"></div>
+    </section>
+
+    <!-- FAIXA -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="marquee"></div>
+    </div>
+
+    <!-- SERVIÇOS -->
+    <section class="section" id="servicos">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow"><span class="dots"></span>Serviços</span>
+            <h2 class="h2 reveal">Como eu tiro sua <span class="accent-text">ideia do papel</span></h2>
+          </div>
+          <a class="btn btn-accent sm magnetic reveal" href="#contato">Pedir orçamento <span class="btn-ico" aria-hidden="true">→</span></a>
+        </div>
+        <div class="services" id="services"></div>
       </div>
     </section>
 
     <!-- PROJETOS -->
     <section class="section" id="projetos">
-      <div class="section-head reveal">
-        <h2><span class="mono num">01</span> Projetos</h2>
-        <div class="filtros" id="filtros" role="group" aria-label="Filtrar projetos por tecnologia"></div>
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow"><span class="dots"></span>Projetos</span>
+            <h2 class="h2 reveal">Trabalhos <span class="accent-text">selecionados</span></h2>
+          </div>
+          <a class="link-arrow reveal" href="https://github.com/rafaelmestre" target="_blank" rel="noopener">Ver tudo no GitHub ↗</a>
+        </div>
+        <div class="featured" id="featured"></div>
+
+        <h3 class="sub-head reveal">Projetos acadêmicos <span class="muted">· ADS PUC Minas</span></h3>
+        <div class="academic" id="academic"></div>
       </div>
-      <div class="grid" id="gridProjetos"></div>
     </section>
 
-    <!-- HABILIDADES -->
-    <section class="section" id="habilidades">
-      <div class="section-head reveal">
-        <h2><span class="mono num">02</span> Habilidades</h2>
+    <!-- SOBRE -->
+    <section class="section about" id="sobre">
+      <div class="container about-grid">
+        <div class="about-photo reveal">
+          <div class="about-frame">
+            <img id="aboutImg" src="" alt="Rafael Mestre" loading="lazy" />
+          </div>
+          <span class="about-tag t1">Desenvolvedor Web</span>
+          <span class="about-tag t2">Visão de negócio</span>
+        </div>
+        <div>
+          <span class="eyebrow"><span class="dots"></span>Sobre mim</span>
+          <h2 class="h2 reveal" id="sobreTitulo"></h2>
+          <div class="about-text reveal" id="sobreTexto"></div>
+          <div class="info-grid" id="infoGrid"></div>
+        </div>
       </div>
-      <div class="skills" id="skills"></div>
+    </section>
+
+    <!-- STACK -->
+    <section class="section tight">
+      <div class="container">
+        <span class="eyebrow center"><span class="dots"></span>Ferramentas que uso</span>
+        <div class="stack" id="stack"></div>
+      </div>
+    </section>
+
+    <!-- PROCESSO -->
+    <section class="section" id="processo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow"><span class="dots"></span>Processo</span>
+            <h2 class="h2 reveal">Do primeiro “oi” ao <span class="accent-text">site no ar</span></h2>
+          </div>
+        </div>
+        <ol class="steps" id="steps"></ol>
+      </div>
     </section>
 
     <!-- CONTATO -->
     <section class="section" id="contato">
-      <div class="section-head reveal">
-        <h2><span class="mono num">03</span> Contato</h2>
-      </div>
-      <div class="contact-card reveal">
-        <p>Quer conversar sobre uma vaga, um projeto ou uma ideia? Me chama.</p>
-        <div class="links" id="links"></div>
+      <div class="container">
+        <div class="contact">
+          <div class="contact-glow" aria-hidden="true"></div>
+          <div class="contact-info">
+            <span class="eyebrow"><span class="dots"></span>Contato</span>
+            <h2 class="h2 reveal">Vamos construir <span class="accent-text">algo juntos?</span></h2>
+            <p class="muted reveal">Conte rapidinho sobre o seu negócio e o que você precisa. Respondo em até 1 dia útil.</p>
+            <div class="contact-links" id="contactLinks"></div>
+          </div>
+
+          <!-- Formulário: recebido no painel do Netlify (Forms) -->
+          <form class="form reveal" name="contato" method="POST" data-netlify="true" netlify-honeypot="empresa" id="form">
+            <input type="hidden" name="form-name" value="contato" />
+            <p class="hp"><label>Não preencha: <input name="empresa" /></label></p>
+            <div class="field">
+              <label for="f-nome">Seu nome</label>
+              <input id="f-nome" name="nome" required autocomplete="name" placeholder="Como posso te chamar?" />
+            </div>
+            <div class="field">
+              <label for="f-contato">WhatsApp ou e-mail</label>
+              <input id="f-contato" name="contato" required placeholder="Para eu te responder" />
+            </div>
+            <div class="field">
+              <label for="f-tipo">O que você precisa?</label>
+              <select id="f-tipo" name="tipo">
+                <option>Site institucional</option>
+                <option>Landing page</option>
+                <option>Sistema web / app</option>
+                <option>Agendamento online</option>
+                <option>Ainda não sei</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="f-msg">Mensagem</label>
+              <textarea id="f-msg" name="mensagem" rows="4" placeholder="Conte um pouco sobre o seu negócio"></textarea>
+            </div>
+            <button class="btn btn-accent full magnetic" type="submit">Enviar mensagem <span class="btn-ico" aria-hidden="true">→</span></button>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <span>© <span id="ano"></span> Rafael Mestre</span>
-    <span class="mono">feito à mão · HTML, CSS & JS</span>
+    <div class="container footer-inner">
+      <a class="logo" href="#topo">
+        <span class="logo-mark" aria-hidden="true">R</span>
+        <span class="logo-text">Rafael<span class="dot">.</span></span>
+      </a>
+      <p class="muted small">Sites e sistemas com preço justo para quem empreende.</p>
+      <div class="social-row" id="footerSocial"></div>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="ano"></span> Rafael Studio · rafaelmestre.com.br</span>
+      <span class="mono">feito à mão · HTML, CSS & JS</span>
+    </div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
